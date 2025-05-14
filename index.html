@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>360xperience – Future. Visualized.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>360xperience</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth;}
-    body {font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden;}
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
     nav {
-      position: fixed; top: 0; width: 100%; padding: 20px 40px; background: rgba(0,0,0,0.85);
-      display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000; backdrop-filter: blur(10px);
+      width: 100%; padding: 20px 40px; background: #000; display: flex;
+      justify-content: space-between; align-items: center;
     }
     nav h1 {
       font-family: 'Orbitron', sans-serif; color: #00ffe7; font-size: 1.8rem;
@@ -22,132 +21,124 @@
     nav ul li a {
       text-decoration: none; color: #fff; font-weight: 600; position: relative;
     }
-    nav ul li a::after {
-      content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 2px;
-      background: #00ffe7; transform: scaleX(0); transition: transform 0.3s ease;
-      transform-origin: right;
+    .hero {
+      text-align: center; padding: 120px 20px 60px;
     }
-    nav ul li a:hover::after {
-      transform: scaleX(1); transform-origin: left;
-    }
-    section {min-height: 100vh; display: none; align-items: center; justify-content: center; padding: 100px 20px 60px; flex-direction: column; text-align: center;}
-    section.active {display: flex;}
     .hero h2 {
-      font-size: 3.5rem; font-weight: 600;
+      font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #00ffe7;
     }
     .hero p {
-      font-size: 1.2rem; color: #aaa; margin-top: 20px;
+      margin-top: 10px; font-size: 1.2rem; color: #ccc;
     }
-    .hero video {
-      width: 90vw; max-width: 1200px; margin-top: 40px; border-radius: 20px;
-      box-shadow: 0 0 50px rgba(0,255,231,0.1);
+    .hero img {
+      width: 90vw; max-width: 1000px; margin-top: 30px; border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,255,231,0.1);
+    }
+    .section {
+      padding: 80px 20px; text-align: center;
+    }
+    .section-title {
+      font-size: 2.5rem; margin-bottom: 30px; color: #00ffe7;
     }
     iframe {
       width: 90vw; max-width: 1200px; height: 80vh;
       border: none; border-radius: 20px;
       box-shadow: 0 0 60px rgba(0,255,231,0.15);
     }
-    .section-title {
-      font-size: 2.5rem; margin-bottom: 30px; color: #00ffe7;
-    }
     .prices {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+      display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
     }
     .card {
       background: #111; padding: 30px; border-radius: 20px;
       box-shadow: 0 0 30px rgba(255,255,255,0.05);
       width: 280px; transition: transform 0.3s;
     }
-    .card:hover {transform: translateY(-10px);}
-    .card h3 {color: #fff; margin-bottom: 10px;}
-    .card p {color: #aaa; font-size: 0.95rem;}
-    .card .price {color: #00ffe7; font-size: 1.5rem; margin-top: 20px;}
+    .card:hover { transform: translateY(-10px); }
+    .card h3 { color: #fff; margin-bottom: 10px; }
+    .card p { color: #aaa; font-size: 0.95rem; }
+    .card .price { color: #00ffe7; font-size: 1.5rem; margin-top: 20px; }
+    .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
     footer {
-      background: #111; padding: 40px 20px; text-align: center; font-size: 0.9rem; color: #666;
+      background: #111; padding: 40px 20px; text-align: center;
+      font-size: 0.9rem; color: #666;
     }
-    .cta-button {
-      margin-top: 30px; background: #00ffe7; color: #111;
-      padding: 15px 40px; border-radius: 30px; text-decoration: none;
-      font-weight: bold; font-size: 1rem; transition: background 0.3s;
+    footer a {
+      color: #888; text-decoration: none; margin: 0 10px; font-size: 0.8rem;
     }
-    .cta-button:hover { background: #00cfc7; }
-    img.sample {
-      width: 80%; max-width: 600px; border-radius: 20px; margin-top: 20px; box-shadow: 0 0 20px rgba(0,255,231,0.1);
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <nav>
     <h1>360xperience</h1>
     <ul>
-      <li><a href="#" onclick="showSection('home')">Home</a></li>
-      <li><a href="#" onclick="showSection('portfolio')">Portfolio</a></li>
-      <li><a href="#" onclick="showSection('preise')">Preise</a></li>
-      <li><a href="#" onclick="showSection('kontakt')">Kontakt</a></li>
-      <li><a href="#" onclick="showSection('impressum')">Impressum</a></li>
-      <li><a href="#" onclick="showSection('datenschutz')">Datenschutz</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
     </ul>
   </nav>
 
-  <section id="home" class="hero active">
+  <section class="hero">
     <h2>Future. Visualized.</h2>
-    <p>Immersive 360°-Präsentationen, die beeindrucken.</p>
-    <video autoplay muted loop playsinline src="https://cdn.pixabay.com/vimeo/774650702/abstract-135229.mp4?width=1280&hash=99f3280d26c64f6d3e30fa8613174b1beecab34b" type="video/mp4"></video>
+    <p>Immersive 360°-Erlebnisse für Ihr Unternehmen</p>
+    <img src="https://cdn.pixabay.com/photo/2021/08/12/18/56/architecture-6540977_1280.jpg" alt="360 Visualisierung">
   </section>
 
-  <section id="portfolio">
+  <section class="section" id="portfolio">
     <h2 class="section-title">Portfolio</h2>
     <iframe id="tour-embeded" src="https://tour.panoee.net/iframe/68064b2e1f2a832c3b36ebb7" allow="accelerometer; gyroscope; autoplay;"></iframe>
   </section>
 
-  <section id="preise">
+  <section class="section" id="preise">
     <h2 class="section-title">Preise</h2>
     <div class="prices">
       <div class="card">
-        <h3>Starter</h3>
-        <p>Bis zu 5 Panorama-Standorte</p>
-        <div class="price">ab 299€</div>
+        <img src="https://cdn.pixabay.com/photo/2020/02/21/17/28/interior-4866264_1280.jpg" alt="Beispiel Visualisierung">
+        <h3>Basic</h3>
+        <p>Bis zu 5 Hotspots</p>
+        <div class="price">ab 150€</div>
       </div>
       <div class="card">
-        <h3>Professional</h3>
-        <p>Bis zu 20 Hotspots, Branding & Hosting inkl.</p>
-        <div class="price">ab 799€</div>
+        <img src="https://cdn.pixabay.com/photo/2018/05/10/18/40/living-room-3387044_1280.jpg" alt="Tour Beispiel">
+        <h3>Advanced</h3>
+        <p>Bis zu 12 Hotspots</p>
+        <div class="price">ab 249€</div>
       </div>
       <div class="card">
-        <h3>Enterprise</h3>
-        <p>Individuelle Integration, Analytics & Support</p>
-        <div class="price">auf Anfrage</div>
+        <img src="https://cdn.pixabay.com/photo/2019/04/29/21/18/home-4160408_1280.jpg" alt="Immobilien Beispiel">
+        <h3>Premium</h3>
+        <p>Bis zu 20 Hotspots + Logo-Branding</p>
+        <div class="price">ab 399€</div>
       </div>
     </div>
   </section>
 
-  <section id="kontakt">
-    <h2 class="section-title">Lassen Sie uns starten</h2>
-    <p>Jetzt unverbindlich Kontakt aufnehmen und Ihre digitale Zukunft gestalten.</p>
-    <a class="cta-button" href="mailto:kontakt@360xperience.de">Kontakt aufnehmen</a>
-  </section>
-
-  <section id="impressum">
-    <h2 class="section-title">Impressum</h2>
-    <p>360xperience GmbH<br> Musterstraße 12<br> 12345 Berlin<br><br>Geschäftsführer: Max Mustermann<br>USt-IdNr: DE123456789<br><br>Telefon: 030 1234567<br>E-Mail: kontakt@360xperience.de</p>
-    <img class="sample" src="https://cdn.pixabay.com/photo/2017/08/06/01/06/germany-2582877_960_720.jpg" alt="Bürogebäude" />
-  </section>
-
-  <section id="datenschutz">
-    <h2 class="section-title">Datenschutz</h2>
-    <p>Wir nehmen den Schutz Ihrer Daten sehr ernst. Ihre personenbezogenen Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung behandelt.</p>
-    <img class="sample" src="https://cdn.pixabay.com/photo/2016/05/05/02/37/laptop-1378739_960_720.jpg" alt="Datenschutz" />
+  <section class="section" id="kontakt">
+    <h2 class="section-title">Kontakt</h2>
+    <p>Jetzt unverbindlich beraten lassen</p>
+    <a href="mailto:kontakt@360xperience.de" style="color:#00ffe7; font-weight:bold; font-size:1.1rem; text-decoration:none;">kontakt@360xperience.de</a>
   </section>
 
   <footer>
-    &copy; 2025 360xperience GmbH
+    &copy; 2025 360xperience GmbH – All rights reserved<br>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
+    var pano_iframe_name = "tour-embeded";
+    window.addEventListener("devicemotion", function(e) {
+      var iframe = document.getElementById(pano_iframe_name);
+      if (iframe) iframe.contentWindow.postMessage({
+        type: "devicemotion",
+        deviceMotionEvent: {
+          acceleration: { x: e.acceleration.x, y: e.acceleration.y, z: e.acceleration.z },
+          accelerationIncludingGravity: { x: e.accelerationIncludingGravity.x, y: e.accelerationIncludingGravity.y, z: e.accelerationIncludingGravity.z },
+          rotationRate: { alpha: e.rotationRate.alpha, beta: e.rotationRate.beta, gamma: e.rotationRate.gamma },
+          interval: e.interval, timeStamp: e.timeStamp
+        }
+      }, "*");
+    });
   </script>
 </body>
 </html>
