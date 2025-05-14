@@ -8,6 +8,8 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: #111; color: #fff; overflow-x: hidden; }
+
+    /* Navigation */
     nav {
       width: 100%; padding: 20px 40px; background: #111; display: flex;
       justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;
@@ -22,17 +24,17 @@
     nav ul li a { text-decoration: none; color: #fff; font-weight: 600; position: relative; }
     nav ul li a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #00ffe7; transition: width 0.3s ease; }
     nav ul li a:hover::after { width: 100%; }
-    
+
+    /* Hero Section */
     .hero { text-align: center; padding: 120px 20px 60px; animation: fadeInUp 1.5s ease both; }
     .hero h2 { font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #00ffe7; animation: slideInLeft 1s ease; }
     .hero p { margin-top: 10px; font-size: 1.2rem; color: #ccc; }
     .hero img { width: 90vw; max-width: 1000px; margin-top: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,255,231,0.1); animation: zoomIn 1s ease forwards; }
-    
+
     @keyframes slideInLeft {
       from { transform: translateX(-100%); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
-
     @keyframes zoomIn {
       from { transform: scale(0.9); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
@@ -43,6 +45,7 @@
       to { transform: translateY(0); opacity: 1; } 
     }
 
+    /* Portfolio Section */
     .section { padding: 80px 20px; text-align: center; }
     .section-title { font-size: 2.5rem; margin-bottom: 30px; color: #00ffe7; animation: fadeInUp 1.2s ease both; }
 
@@ -56,6 +59,7 @@
       animation: fadeInUp 1.2s ease 0.5s both; 
     }
 
+    /* Pricing Section */
     .prices { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; animation: fadeInUp 1.5s ease both; }
     .card { background: #111; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(255,255,255,0.05); width: 280px; transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-10px); box-shadow: 0 0 40px rgba(0,255,231,0.3); }
@@ -69,29 +73,18 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
+    /* Footer */
     footer { background: #111; padding: 40px 20px; text-align: center; font-size: 0.9rem; color: #666; animation: fadeInUp 1.5s ease both; }
     footer a { color: #888; text-decoration: none; margin: 0 10px; font-size: 0.8rem; }
     footer a:hover { text-decoration: underline; }
 
-    section { display: none; padding: 50px 20px; background: #111; color: #fff; }
-    section.active { display: block; }
-
-    /* Parallax effect */
-    .parallax {
-      background-image: url('https://cdn.pixabay.com/photo/2021/10/23/10/10/forest-6737677_1280.jpg');
-      height: 100vh;
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      animation: parallaxEffect 4s ease-out infinite;
-    }
-
-    @keyframes parallaxEffect {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-30px); }
-      100% { transform: translateY(0); }
-    }
-
+    /* Contact Section */
+    .contact { padding: 60px 20px; background-color: #111; text-align: center; }
+    .contact h2 { font-size: 2.5rem; color: #00ffe7; margin-bottom: 30px; }
+    .contact p { color: #aaa; font-size: 1.1rem; margin-bottom: 30px; }
+    .contact form input, .contact form textarea { width: 80%; max-width: 600px; padding: 10px; margin: 10px 0; border: none; border-radius: 8px; }
+    .contact form button { padding: 12px 30px; background: #00ffe7; border: none; color: #111; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.3s ease; }
+    .contact form button:hover { background: #00cc99; }
   </style>
 </head>
 <body>
@@ -111,9 +104,9 @@
     <img src="https://cdn.pixabay.com/photo/2021/08/12/18/56/architecture-6540977_1280.jpg" alt="360 Visualisierung">
   </section>
 
-  <section class="section parallax" id="portfolio">
+  <section class="section" id="portfolio">
     <h2 class="section-title">Portfolio</h2>
-    <iframe id="tour-embeded" src="https://tour.panoee.net/iframe/68064b2e1f2a832c3b36ebb7" allow="accelerometer; gyroscope; autoplay;"></iframe>
+    <iframe src="https://tour.panoee.net/iframe/68064b2e1f2a832c3b36ebb7" allow="accelerometer; gyroscope; autoplay;" frameborder="0" width="100%" height="500px"></iframe>
   </section>
 
   <section class="section" id="preise">
@@ -140,37 +133,23 @@
     </div>
   </section>
 
-  <section class="section" id="kontakt">
-    <h2 class="section-title">Kontakt</h2>
-    <p>Jetzt unverbindlich beraten lassen</p>
-    <a href="mailto:kontakt@360xperience.de" style="color:#00ffe7; font-weight:bold; font-size:1.1rem; text-decoration:none;">kontakt@360xperience.de</a>
+  <section class="contact" id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Haben Sie Fragen oder möchten Sie mehr erfahren? Schreiben Sie uns!</p>
+    <form>
+      <input type="text" placeholder="Ihr Name" required>
+      <input type="email" placeholder="Ihre E-Mail" required>
+      <textarea placeholder="Ihre Nachricht" rows="4" required></textarea>
+      <button type="submit">Absenden</button>
+    </form>
   </section>
 
   <footer>
-    &copy; 2025 360xperience GmbH – All rights reserved<br>
-    <a href="javascript:void(0);" onclick="toggleSection('impressum')">Impressum</a>
-    <a href="javascript:void(0);" onclick="toggleSection('datenschutz')">Datenschutz</a>
+    <p>© 2025 360xperience. Alle Rechte vorbehalten.</p>
+    <p>
+      <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+    </p>
   </footer>
-
-  <section id="impressum">
-    <h2>Impressum</h2>
-    <p><strong>360xperience GmbH</strong><br> Musterstraße 123<br> 12345 Musterstadt<br> Deutschland</p>
-    <p><strong>Vertreten durch:</strong><br> Max Mustermann</p>
-    <p><strong>Kontakt:</strong><br> E-Mail: <a href="mailto:kontakt@360xperience.de">kontakt@360xperience.de</a></p>
-    <p><strong>Registereintrag:</strong><br> Amtsgericht Musterstadt, HRB 123456</p>
-  </section>
-
-  <section id="datenschutz">
-    <h2>Datenschutz</h2>
-    <p>Hier können Sie unsere Datenschutzrichtlinien einsehen. Wir achten stets auf Ihre Daten.</p>
-  </section>
-
-  <script>
-    function toggleSection(sectionId) {
-      document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
-    }
-  </script>
 
 </body>
 </html>
