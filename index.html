@@ -3,156 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>360xperience | Virtuelle Rundgänge für Ihr Business</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Raleway:wght@300;600&display=swap" rel="stylesheet" />
+  <title>360xperience – Future. Visualized.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: linear-gradient(145deg, #0f0f0f, #1a1a1a); font-family: 'Raleway', sans-serif; color: #fff; line-height: 1.6; }
-    header { text-align: center; padding: 60px 20px 30px; animation: fadeIn 1.5s ease-out; }
-    header h1 { font-family: 'Orbitron', sans-serif; font-size: 3.2rem; color: #00ffe7; letter-spacing: 2px; margin-bottom: 15px; }
-    header p { font-size: 1.3rem; color: #ccc; max-width: 700px; margin: 0 auto; font-style: italic; }
-    section.features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 60px 20px 30px; background-color: #181818; }
-    .feature-box { background-color: #222; border-radius: 10px; padding: 30px; max-width: 300px; text-align: center; box-shadow: 0 0 20px rgba(0, 255, 231, 0.1); transition: transform 0.3s; }
-    .feature-box:hover { transform: translateY(-5px); }
-    .feature-box h3 { color: #00ffe7; margin-bottom: 10px; }
-    .feature-box p { font-size: 0.95rem; color: #ddd; }
-    main { width: 90%; max-width: 1200px; margin: 50px auto; }
-    iframe { width: 100%; height: 70vh; border: none; border-radius: 15px; box-shadow: 0 0 30px rgba(0, 255, 231, 0.2); }
-    section.cta { text-align: center; padding: 60px 20px; background-color: #111; }
-    .cta h2 { font-size: 2rem; margin-bottom: 20px; color: #00ffe7; }
-    .cta p { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; }
-    .cta a { text-decoration: none; background-color: #00ffe7; color: #111; padding: 15px 30px; border-radius: 30px; font-weight: bold; transition: background-color 0.3s; }
-    .cta a:hover { background-color: #00c7b5; }
-    footer { text-align: center; padding: 30px; font-size: 0.9rem; color: #666; }
-
-    #cookie-banner {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: #222; color: #fff; padding: 20px; text-align: center;
-      z-index: 9999; display: none;
+    * {margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth;}
+    body {font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden;}
+    nav {
+      position: fixed; top: 0; width: 100%; padding: 20px 40px; background: rgba(0,0,0,0.85);
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000; backdrop-filter: blur(10px);
+    }
+    nav h1 {
+      font-family: 'Orbitron', sans-serif; color: #00ffe7; font-size: 1.8rem;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 30px;
+    }
+    nav ul li a {
+      text-decoration: none; color: #fff; font-weight: 600; position: relative;
+    }
+    nav ul li a::after {
+      content: ''; position: absolute; left: 0; bottom: -5px; width: 100%; height: 2px;
+      background: #00ffe7; transform: scaleX(0); transition: transform 0.3s ease;
+      transform-origin: right;
+    }
+    nav ul li a:hover::after {
+      transform: scaleX(1); transform-origin: left;
     }
 
-    #legal-popup {
-      display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-      background-color:rgba(0,0,0,0.8); z-index:10000; overflow:auto;
+    section {min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 60px; flex-direction: column; text-align: center;}
+    .hero h2 {
+      font-size: 3.5rem; font-weight: 600;
     }
-
-    #legal-popup-content {
-      background:#111; color:#fff; margin:50px auto; padding:30px;
-      border-radius:10px; width:90%; max-width:800px; position:relative;
+    .hero p {
+      font-size: 1.2rem; color: #aaa; margin-top: 20px;
     }
-
-    #legal-popup-content button {
-      position:absolute; top:15px; right:15px;
-      background:#00ffe7; color:#111; border:none; padding:10px;
-      border-radius:50%; font-weight:bold; cursor: pointer;
+    .hero video {
+      width: 90vw; max-width: 1200px; margin-top: 40px; border-radius: 20px;
+      box-shadow: 0 0 50px rgba(0,255,231,0.1);
     }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .feature-box { max-width: 90%; }
-      .cta h2 { font-size: 1.6rem; }
+    #portfolio iframe {
+      width: 90vw; max-width: 1200px; height: 80vh;
+      border: none; border-radius: 20px;
+      box-shadow: 0 0 60px rgba(0,255,231,0.15);
     }
+    .section-title {
+      font-size: 2.5rem; margin-bottom: 30px; color: #00ffe7;
+    }
+    .prices {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+    }
+    .card {
+      background: #111; padding: 30px; border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.05);
+      width: 280px; transition: transform 0.3s;
+    }
+    .card:hover {transform: translateY(-10px);}
+    .card h3 {color: #fff; margin-bottom: 10px;}
+    .card p {color: #aaa; font-size: 0.95rem;}
+    .card .price {color: #00ffe7; font-size: 1.5rem; margin-top: 20px;}
+    footer {
+      background: #111; padding: 40px 20px; text-align: center; font-size: 0.9rem; color: #666;
+    }
+    .cta-button {
+      margin-top: 30px; background: #00ffe7; color: #111;
+      padding: 15px 40px; border-radius: 30px; text-decoration: none;
+      font-weight: bold; font-size: 1rem; transition: background 0.3s;
+    }
+    .cta-button:hover { background: #00cfc7; }
   </style>
 </head>
 <body>
-  <header>
+  <nav>
     <h1>360xperience</h1>
-    <p>Ihr Partner für immersive 3D-Touren & virtuelle Präsentationen im B2B-Bereich</p>
-  </header>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#preise">Preise</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
 
-  <section class="features">
-    <div class="feature-box">
-      <h3>Beeindrucken Sie Ihre Kunden</h3>
-      <p>Virtuelle Rundgänge zeigen Ihre Räume eindrucksvoll – 24/7 online verfügbar.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Erhöhen Sie Ihre Conversion</h3>
-      <p>Interaktive Inhalte steigern das Interesse und schaffen Vertrauen.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Modern & Mobil</h3>
-      <p>Perfekt für Webseiten, Präsentationen oder Messen – responsive und VR-kompatibel.</p>
+  <section class="hero" id="hero">
+    <h2>Future. Visualized.</h2>
+    <p>Virtuelle Erlebnisse, die bleiben. Präsentieren Sie Ihre Marke mit immersiven 360° Touren auf dem nächsten Level.</p>
+    <video autoplay muted loop playsinline src="https://cdn.pixabay.com/vimeo/774650702/abstract-135229.mp4?width=1280&hash=99f3280d26c64f6d3e30fa8613174b1beecab34b" type="video/mp4"></video>
+  </section>
+
+  <section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <iframe id="tour-embeded" src="https://tour.panoee.net/iframe/68064b2e1f2a832c3b36ebb7" allowvr="yes" allow="vr; xr; accelerometer; gyroscope; autoplay;"></iframe>
+  </section>
+
+  <section id="features">
+    <h2 class="section-title">Warum 360xperience?</h2>
+    <div class="prices">
+      <div class="card">
+        <h3>VR Ready</h3>
+        <p>Optimiert für Virtual Reality Headsets und moderne Webtechnologie.</p>
+      </div>
+      <div class="card">
+        <h3>High-End Grafik</h3>
+        <p>Ultra-realistische Darstellung mit hochwertiger Kameratechnik.</p>
+      </div>
+      <div class="card">
+        <h3>24/7 Verfügbar</h3>
+        <p>Präsentieren Sie Ihr Business weltweit und jederzeit.</p>
+      </div>
     </div>
   </section>
 
-  <main>
-    <iframe id="tour-embeded" src="https://tour.panoee.net/iframe/68064b2e1f2a832c3b36ebb7" frameborder="0" scrolling="no" allowvr="yes" allow="vr; xr; accelerometer; gyroscope; autoplay;" allowfullscreen="false" loading="eager"></iframe>
-  </main>
-
-  <section class="cta">
-    <h2>Bereit für den nächsten Schritt?</h2>
-    <p>Lassen Sie uns gemeinsam Ihre virtuelle Lösung gestalten. Unverbindlich & individuell!</p>
-    <a href="mailto:kontakt@360xperience.de?subject=Anfrage%20virtuelle%20Tour">Jetzt Kontakt aufnehmen</a>
+  <section id="preise">
+    <h2 class="section-title">Preise</h2>
+    <div class="prices">
+      <div class="card">
+        <h3>Starter</h3>
+        <p>Bis zu 5 Panorama-Standorte</p>
+        <div class="price">ab 499€</div>
+      </div>
+      <div class="card">
+        <h3>Professional</h3>
+        <p>Bis zu 20 Hotspots, Branding & Hosting inkl.</p>
+        <div class="price">ab 1299€</div>
+      </div>
+      <div class="card">
+        <h3>Enterprise</h3>
+        <p>Individuelle Integration, Analytics & API</p>
+        <div class="price">auf Anfrage</div>
+      </div>
+    </div>
   </section>
 
-  <div style="text-align: center; padding: 20px;">
-    <button onclick="toggleLegalPopup()" style="padding: 10px 20px; background: #00ffe7; color: #111; border: none; border-radius: 20px; font-weight: bold;">
-      Impressum & Datenschutz
-    </button>
-  </div>
+  <section id="kontakt">
+    <h2 class="section-title">Lassen Sie uns starten</h2>
+    <p>Jetzt unverbindlich Kontakt aufnehmen und Ihre digitale Zukunft gestalten.</p>
+    <a class="cta-button" href="mailto:kontakt@360xperience.de">Kontakt aufnehmen</a>
+  </section>
 
-  <footer>&copy; 2025 360xperience – Virtuelle Präsentationen für moderne Unternehmen.</footer>
-
-  <!-- Cookie Banner -->
-  <div id="cookie-banner">
-    Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Mit der Nutzung der Seite stimmen Sie dem zu.
-    <button onclick="acceptCookies()" style="margin-left: 15px; padding: 10px 20px; background: #00ffe7; color: #111; border: none; border-radius: 20px; font-weight: bold;">Verstanden</button>
-  </div>
-
-  <!-- Popup -->
-  <div id="legal-popup">
-    <div id="legal-popup-content">
-      <button onclick="toggleLegalPopup()">X</button>
-      <h2 style="color:#00ffe7;">Impressum</h2>
-      <p>
-        360xperience GmbH<br>
-        Musterstraße 123<br>
-        12345 Berlin<br>
-        Telefon: 030 1234567<br>
-        E-Mail: kontakt@360xperience.de<br>
-        Geschäftsführer: Max Mustermann<br>
-        Handelsregister: HRB 123456, Amtsgericht Berlin
-      </p>
-      <h2 style="color:#00ffe7; margin-top:30px;">Datenschutzerklärung</h2>
-      <p>
-        Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Ihre Daten werden vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften behandelt. Bei Nutzung dieser Website werden technisch notwendige Daten (z. B. IP-Adresse) verarbeitet. Es erfolgt keine Weitergabe an Dritte ohne Ihre Zustimmung.
-      </p>
-    </div>
-  </div>
+  <footer>
+    &copy; 2025 360xperience GmbH | Impressum & Datenschutz auf Anfrage | Made with ❤️
+  </footer>
 
   <script>
     var pano_iframe_name = "tour-embeded";
     window.addEventListener("devicemotion", function(e){
       var iframe = document.getElementById(pano_iframe_name);
-      if (iframe)
-        iframe.contentWindow.postMessage({
-          type: "devicemotion",
-          deviceMotionEvent: {
-            acceleration: { x: e.acceleration.x, y: e.acceleration.y, z: e.acceleration.z },
-            accelerationIncludingGravity: { x: e.accelerationIncludingGravity.x, y: e.accelerationIncludingGravity.y, z: e.accelerationIncludingGravity.z },
-            rotationRate: { alpha: e.rotationRate.alpha, beta: e.rotationRate.beta, gamma: e.rotationRate.gamma },
-            interval: e.interval,
-            timeStamp: e.timeStamp
-          }
-        }, "*");
+      if (iframe) iframe.contentWindow.postMessage({
+        type:"devicemotion",
+        deviceMotionEvent:{
+          acceleration: e.acceleration,
+          accelerationIncludingGravity: e.accelerationIncludingGravity,
+          rotationRate: e.rotationRate,
+          interval: e.interval,
+          timeStamp: e.timeStamp
+        }
+      }, "*");
     });
-
-    function acceptCookies() {
-      document.getElementById("cookie-banner").style.display = "none";
-      localStorage.setItem("cookiesAccepted", "true");
-    }
-
-    function toggleLegalPopup() {
-      const popup = document.getElementById('legal-popup');
-      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-    }
-
-    window.onload = function () {
-      if (!localStorage.getItem("cookiesAccepted")) {
-        document.getElementById("cookie-banner").style.display = "block";
-      }
-    };
   </script>
 </body>
 </html>
