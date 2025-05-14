@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: #111; color: #fff; overflow-x: hidden; }
     nav {
-      width: 100%; padding: 20px 40px; background: #000; display: flex;
+      width: 100%; padding: 20px 40px; background: #111; display: flex;
       justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;
       animation: slideDown 1s ease forwards;
     }
@@ -17,35 +17,85 @@
       from { transform: translateY(-100%); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-    nav h1 { font-family: 'Orbitron', sans-serif; color: #00ffe7; font-size: 1.8rem; }
+    nav h1 { font-family: 'Orbitron', sans-serif; color: #00ffe7; font-size: 2rem; }
     nav ul { list-style: none; display: flex; gap: 30px; }
     nav ul li a { text-decoration: none; color: #fff; font-weight: 600; position: relative; }
     nav ul li a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #00ffe7; transition: width 0.3s ease; }
     nav ul li a:hover::after { width: 100%; }
-    .hero { text-align: center; padding: 120px 20px 60px; animation: fadeInUp 1.2s ease both; }
-    .hero h2 { font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #00ffe7; }
+    
+    .hero { text-align: center; padding: 120px 20px 60px; animation: fadeInUp 1.5s ease both; }
+    .hero h2 { font-size: 3rem; font-family: 'Orbitron', sans-serif; color: #00ffe7; animation: slideInLeft 1s ease; }
     .hero p { margin-top: 10px; font-size: 1.2rem; color: #ccc; }
     .hero img { width: 90vw; max-width: 1000px; margin-top: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(0,255,231,0.1); animation: zoomIn 1s ease forwards; }
-    @keyframes fadeInUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    
+    @keyframes slideInLeft {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp { 
+      from { transform: translateY(40px); opacity: 0; } 
+      to { transform: translateY(0); opacity: 1; } 
+    }
+
     .section { padding: 80px 20px; text-align: center; }
-    .section-title { font-size: 2.5rem; margin-bottom: 30px; color: #00ffe7; animation: fadeInUp 1s ease both; }
-    iframe { width: 90vw; max-width: 1200px; height: 80vh; border: none; border-radius: 20px; box-shadow: 0 0 60px rgba(0,255,231,0.15); animation: fadeInUp 1s ease 0.5s both; }
-    .prices { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-    .card { background: #111; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(255,255,255,0.05); width: 280px; transition: transform 0.3s, box-shadow 0.3s; animation: fadeInUp 1s ease both; }
+    .section-title { font-size: 2.5rem; margin-bottom: 30px; color: #00ffe7; animation: fadeInUp 1.2s ease both; }
+
+    iframe { 
+      width: 90vw; 
+      max-width: 1200px; 
+      height: 80vh; 
+      border: none; 
+      border-radius: 20px; 
+      box-shadow: 0 0 60px rgba(0,255,231,0.15); 
+      animation: fadeInUp 1.2s ease 0.5s both; 
+    }
+
+    .prices { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; animation: fadeInUp 1.5s ease both; }
+    .card { background: #111; padding: 30px; border-radius: 20px; box-shadow: 0 0 30px rgba(255,255,255,0.05); width: 280px; transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-10px); box-shadow: 0 0 40px rgba(0,255,231,0.3); }
     .card h3 { color: #fff; margin-bottom: 10px; }
     .card p { color: #aaa; font-size: 0.95rem; }
     .card .price { color: #00ffe7; font-size: 1.5rem; margin-top: 20px; }
-    .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
-    footer { background: #111; padding: 40px 20px; text-align: center; font-size: 0.9rem; color: #666; }
+    .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; animation: scaleUp 1s ease-in-out; }
+
+    @keyframes scaleUp {
+      0% { transform: scale(0.8); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    footer { background: #111; padding: 40px 20px; text-align: center; font-size: 0.9rem; color: #666; animation: fadeInUp 1.5s ease both; }
     footer a { color: #888; text-decoration: none; margin: 0 10px; font-size: 0.8rem; }
     footer a:hover { text-decoration: underline; }
+
     section { display: none; padding: 50px 20px; background: #111; color: #fff; }
     section.active { display: block; }
+
+    /* Parallax effect */
+    .parallax {
+      background-image: url('https://cdn.pixabay.com/photo/2021/10/23/10/10/forest-6737677_1280.jpg');
+      height: 100vh;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      animation: parallaxEffect 4s ease-out infinite;
+    }
+
+    @keyframes parallaxEffect {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+
   </style>
 </head>
 <body>
+
   <nav>
     <h1>360xperience</h1>
     <ul>
@@ -61,7 +111,7 @@
     <img src="https://cdn.pixabay.com/photo/2021/08/12/18/56/architecture-6540977_1280.jpg" alt="360 Visualisierung">
   </section>
 
-  <section class="section" id="portfolio">
+  <section class="section parallax" id="portfolio">
     <h2 class="section-title">Portfolio</h2>
     <iframe id="tour-embeded" src="https://tour.panoee.net/iframe/68064b2e1f2a832c3b36ebb7" allow="accelerometer; gyroscope; autoplay;"></iframe>
   </section>
@@ -112,16 +162,15 @@
 
   <section id="datenschutz">
     <h2>Datenschutz</h2>
-    <p>Wir nehmen den Schutz Ihrer Daten sehr ernst. Weitere Details finden Sie in unserer Datenschutzerklärung. Alle Informationen werden gemäß der DSGVO behandelt.</p>
+    <p>Hier können Sie unsere Datenschutzrichtlinien einsehen. Wir achten stets auf Ihre Daten.</p>
   </section>
 
   <script>
-    function toggleSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => section.classList.remove('active'));
-      const section = document.getElementById(id);
-      section.classList.add('active');
+    function toggleSection(sectionId) {
+      document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
     }
   </script>
+
 </body>
 </html>
