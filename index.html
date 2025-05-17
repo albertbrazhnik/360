@@ -14,23 +14,6 @@
       overflow-x: hidden;
     }
 
-    /* Animationen */
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    .animate-up {
-      animation: fadeInUp 1s ease-out forwards;
-    }
-    .animate-fade {
-      animation: fadeIn 1.5s ease-out forwards;
-    }
-
-    /* Navigation */
     nav {
       width: 100%;
       padding: 20px 40px;
@@ -49,7 +32,6 @@
       color: #c5a100;
       font-size: 2rem;
       letter-spacing: 1px;
-      animation: fadeInUp 1s ease-out;
     }
     nav ul {
       list-style: none;
@@ -76,7 +58,6 @@
       width: 100%;
     }
 
-    /* Hero Section */
     .hero {
       text-align: center;
       padding: 120px 20px 60px;
@@ -85,13 +66,11 @@
       font-size: 3.2rem;
       font-family: 'Playfair Display', serif;
       color: #c5a100;
-      animation: fadeInUp 1s ease-out;
     }
     .hero p {
       margin-top: 12px;
       font-size: 1.2rem;
       color: #666;
-      animation: fadeIn 1.2s ease-out;
     }
     .hero img {
       width: 90vw;
@@ -99,10 +78,8 @@
       margin-top: 40px;
       border-radius: 20px;
       box-shadow: 0 0 30px rgba(0,0,0,0.08);
-      animation: fadeInUp 1.4s ease-out;
     }
 
-    /* Sections */
     .section {
       padding: 80px 20px;
       text-align: center;
@@ -112,32 +89,26 @@
       margin-bottom: 30px;
       color: #c5a100;
       font-family: 'Playfair Display', serif;
-      animation: fadeInUp 1s ease-out;
     }
 
-    /* Iframe Wrapper */
     .iframe-wrapper {
       margin: 40px auto;
       max-width: 800px;
-      text-align: center;
     }
     .iframe-wrapper h3 {
       font-family: 'Playfair Display', serif;
-      color: #2b2b2b;
       font-size: 1.5rem;
-      margin-bottom: 15px;
-      animation: fadeInUp 1s ease-out;
+      color: #c5a100;
+      margin-bottom: 10px;
     }
     .iframe-wrapper iframe {
       width: 100%;
-      height: 450px;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.05);
-      opacity: 0;
-      animation: fadeIn 1.2s ease-out 0.3s forwards;
+      height: 400px;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
     }
 
-    /* Preise */
     .prices {
       display: flex;
       justify-content: center;
@@ -152,7 +123,6 @@
       width: 280px;
       border: 1px solid #eee;
       transition: transform 0.3s, box-shadow 0.3s;
-      animation: fadeInUp 1s ease-out;
     }
     .card:hover {
       transform: translateY(-8px);
@@ -173,7 +143,6 @@
       margin-top: 20px;
     }
 
-    /* Kontakt */
     .contact {
       padding: 60px 20px;
       background-color: #f7f7f5;
@@ -184,13 +153,11 @@
       color: #c5a100;
       margin-bottom: 30px;
       font-family: 'Playfair Display', serif;
-      animation: fadeInUp 1s ease-out;
     }
     .contact p {
       color: #666;
       font-size: 1.1rem;
       margin-bottom: 30px;
-      animation: fadeIn 1.2s ease-out;
     }
     .contact form input,
     .contact form textarea {
@@ -202,7 +169,6 @@
       border-radius: 8px;
       background: #fff;
       color: #2b2b2b;
-      animation: fadeInUp 1s ease-out;
     }
     .contact form button {
       padding: 14px 30px;
@@ -212,20 +178,17 @@
       font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
-      animation: fadeInUp 1s ease-out;
     }
     .contact form button:hover {
       background: #b29400;
     }
 
-    /* Footer */
     footer {
       background: #f1f1ef;
       padding: 40px 20px;
       text-align: center;
       font-size: 0.9rem;
       color: #666;
-      animation: fadeIn 1s ease-out;
     }
     footer a {
       color: #888;
@@ -237,7 +200,6 @@
       color: #c5a100;
     }
 
-    /* Cookie Banner */
     #cookie-banner {
       position: fixed;
       bottom: 0;
@@ -289,12 +251,25 @@
 
     <div class="iframe-wrapper">
       <h3>Diabetologie Dideban</h3>
-      <iframe src="https://tour.panoee.net/iframe/6828a4a6d3d9249e0ffda9d1" frameBorder="0" allowvr="yes" allow="vr; xr; accelerometer; gyroscope; autoplay;" loading="eager"></iframe>
+      <iframe 
+        src="https://tour.panoee.net/iframe/6828a4a6d3d9249e0ffda9d1" 
+        frameborder="0"
+        allowvr="yes"
+        allow="vr; xr; accelerometer; gyroscope; autoplay;"
+        allowfullscreen
+        loading="eager">
+      </iframe>
     </div>
 
     <div class="iframe-wrapper">
       <h3>Yen Yen Restaurant</h3>
-      <iframe src="https://tour.panoee.net/6828afd9d3d9240e29fdaa2e" allow="accelerometer; gyroscope; autoplay;"></iframe>
+      <iframe 
+        src="https://tour.panoee.net/6828afd9d3d9240e29fdaa2e"
+        frameborder="0"
+        allow="vr; xr; accelerometer; gyroscope; autoplay;"
+        allowfullscreen
+        loading="eager">
+      </iframe>
     </div>
   </section>
 
@@ -337,7 +312,6 @@
     </p>
   </footer>
 
-  <!-- Cookie Banner -->
   <div id="cookie-banner">
     <p>
       Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern.
