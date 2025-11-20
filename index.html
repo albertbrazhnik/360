@@ -6,30 +6,17 @@
   <title>360xperience</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
       background: #fdfdfb;
       color: #2b2b2b;
       overflow-x: hidden;
     }
+    
+    @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    /* Navigation */
     nav {
       width: 100%;
       padding: 20px 40px;
@@ -50,32 +37,14 @@
       font-size: 2rem;
       letter-spacing: 1px;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
+    nav ul { list-style: none; display: flex; gap: 30px; }
     nav ul li a {
       text-decoration: none;
       color: #2b2b2b;
       font-weight: 600;
       position: relative;
     }
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #c5a100;
-      transition: width 0.3s ease;
-    }
-    nav ul li a:hover::after {
-      width: 100%;
-    }
 
-    /* Hero Section */
     .hero {
       text-align: center;
       padding: 120px 20px 60px;
@@ -91,19 +60,8 @@
       font-size: 1.2rem;
       color: #666;
     }
-    .hero img {
-      width: 90vw;
-      max-width: 1000px;
-      margin-top: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.08);
-      animation: fadeInUp 1.5s ease-out both;
-    }
 
-    .section {
-      padding: 80px 20px;
-      text-align: center;
-    }
+    .section { padding: 80px 20px; text-align: center; }
     .section-title {
       font-size: 2.5rem;
       margin-bottom: 30px;
@@ -121,7 +79,7 @@
     }
 
     iframe {
-      width: 90vw;
+      width: 95vw;
       max-width: 800px;
       height: 55vh;
       border: none;
@@ -129,137 +87,41 @@
       box-shadow: 0 0 40px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
-    iframe:hover {
-      transform: scale(1.01);
-    }
 
-    .prices {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      animation: fadeInUp 1s ease-in-out both;
-    }
-    .card {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      width: 280px;
-      border: 1px solid #eee;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    }
-    .card h3 {
-      color: #2b2b2b;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
-    }
-    .card p {
-      color: #666;
-      font-size: 0.95rem;
-    }
-    .card .price {
-      color: #c5a100;
-      font-size: 1.5rem;
-      margin-top: 20px;
-    }
-
-    .contact {
-      padding: 60px 20px;
-      background-color: #f7f7f5;
+    .section-contact {
+      padding: 80px 20px;
+      background: #f7f7f5;
       text-align: center;
     }
-    .contact h2 {
-      font-size: 2.5rem;
-      color: #c5a100;
-      margin-bottom: 30px;
-      font-family: 'Playfair Display', serif;
-    }
-    .contact p {
-      color: #666;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-    .contact form {
+    .contact-box {
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
+      gap: 20px;
       align-items: center;
     }
-    .contact form input,
-    .contact form textarea {
-      width: 90%;
-      max-width: 600px;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-      color: #2b2b2b;
-    }
-    .contact form textarea {
-      height: 120px;
-    }
-    .contact form button {
-      padding: 14px 30px;
-      background: #c5a100;
-      border: none;
-      color: #fff;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .contact form button:hover {
-      background: #b29400;
-    }
-
-    footer {
-      background: #f1f1ef;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    footer a {
-      color: #888;
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.2rem;
       text-decoration: none;
-      margin: 0 10px;
+      color: #2b2b2b;
+      font-weight: 600;
     }
-    footer a:hover {
-      text-decoration: underline;
-      color: #c5a100;
+    .contact-link img {
+      width: 32px;
+      height: 32px;
     }
 
-    #cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #fff;
-      color: #2b2b2b;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      z-index: 9999;
-      box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
-      display: none;
-    }
-    #cookie-banner button {
-      margin-top: 10px;
-      background: #c5a100;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #cookie-banner button:hover {
-      background: #b29400;
+    footer { background: #f1f1ef; padding: 40px 20px; text-align: center; font-size: 0.9rem; color: #666; }
+    footer a { color: #888; text-decoration: none; margin: 0 10px; }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 2.3rem; }
+      nav h1 { font-size: 1.6rem; }
+      .portfolio-label { font-size: 1.2rem; }
+      .section-title { font-size: 2rem; }
     }
   </style>
 </head>
@@ -268,58 +130,45 @@
     <h1>360xperience</h1>
     <ul>
       <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#preise">Preise</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
   </nav>
 
   <section class="hero">
     <h2>Future. Visualized.</h2>
-    <p>Immersive 360°-Erlebnisse für Ihr Unternehmen</p>
+    <p>Immersive 360°-Erlebnisse für Arztpraxen & medizinische Einrichtungen</p>
   </section>
 
   <section class="section" id="portfolio">
     <h2 class="section-title">Portfolio</h2>
+
     <div class="portfolio-label">Zahnhütte Troisdorf</div>
-    <iframe src="https://tour.panoee.net/69187e15e75aa34af07b6852" allow="accelerometer; gyroscope; autoplay; fullscreen; xr-spatial-tracking" allowfullscreen loading="eager"></iframe>
+    <iframe src="https://tour.panoee.net/69187e15e75aa34af07b6852"></iframe>
+
     <div style="height: 40px;"></div>
+
     <div class="portfolio-label">Diabetologie Dideban</div>
-    <iframe src="https://tour.panoee.net/iframe/6828a4a6d3d9249e0ffda9d1" allow="accelerometer; gyroscope; autoplay; fullscreen; xr-spatial-tracking" allowfullscreen loading="eager"></iframe>
+    <iframe src="https://tour.panoee.net/iframe/6828a4a6d3d9249e0ffda9d1"></iframe>
+
     <div style="height: 40px;"></div>
+
     <div class="portfolio-label">Yen Yen Restaurant</div>
-    <iframe src="https://tour.panoee.net/6828afd9d3d9240e29fdaa2e" allow="accelerometer; gyroscope; autoplay; fullscreen; xr-spatial-tracking" allowfullscreen loading="eager"></iframe>
+    <iframe src="https://tour.panoee.net/6828afd9d3d9240e29fdaa2e"></iframe>
   </section>
 
-  <section class="section" id="preise">
-    <h2 class="section-title">Preise</h2>
-    <div class="prices">
-      <div class="card">
-        <h3>Basic</h3>
-        <p>Bis zu 5 Hotspots</p>
-        <div class="price">ab 149€</div>
-      </div>
-      <div class="card">
-        <h3>Advanced</h3>
-        <p>Bis zu 12 Hotspots</p>
-        <div class="price">ab 249€</div>
-      </div>
-      <div class="card">
-        <h3>Premium</h3>
-        <p>Bis zu 20 Hotspots + Logo-Branding</p>
-        <div class="price">ab 399€</div>
-      </div>
+  <section class="section-contact" id="kontakt">
+    <h2 class="section-title">Kontakt</h2>
+    <div class="contact-box">
+      <a class="contact-link" href="mailto:info@360xperience.de">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Mail Icon">
+        info@360xperience.de
+      </a>
+
+      <a class="contact-link" href="https://instagram.com/360xperience" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon">
+        @360xperience
+      </a>
     </div>
-  </section>
-
-  <section class="contact" id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Fragen? Schreiben Sie uns eine Nachricht.</p>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="E-Mail" required>
-      <textarea placeholder="Ihre Nachricht" required></textarea>
-      <button type="submit">Absenden</button>
-    </form>
   </section>
 
   <footer>
@@ -328,25 +177,5 @@
       <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
     </p>
   </footer>
-
-  <div id="cookie-banner">
-    <p>
-      Wir verwenden Cookies, um Ihre Erfahrung auf unserer Website zu verbessern.
-      <a href="datenschutz.html" style="color: #c5a100; text-decoration: underline;">Mehr erfahren</a>
-    </p>
-    <button onclick="acceptCookies()">Okay</button>
-  </div>
-
-  <script>
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-    window.addEventListener('DOMContentLoaded', function () {
-      if (!localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookie-banner').style.display = 'block';
-      }
-    });
-  </script>
 </body>
 </html>
